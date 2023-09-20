@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>My Funko Collection</h2>
+{% for funko in funkos %}
+<div>
+    <h2>{{funko.name}}</h2>
+    <h2>#{{funko.number}}</h2>
+    <img src="{{funko.image}}" />
+    <p>{{funko.description}}</p>
+    <a href="{{funko.link}}" target="_blank">Click here to learn more on the official Funko site.</a>
+</div>
+{% endfor %}
+{% endblock %}
