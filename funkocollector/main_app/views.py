@@ -8,10 +8,10 @@ funkos = [
 ]
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'home.html',{'title':'Home'})
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'about.html',{'title':'About'})
 
 def funkos_index(request):
-    return render(request, 'funkos/index.html',{'funkos':funkos})
+    return render(request, 'funkos/index.html',{'title':'All Funkos','funkos':funkos})

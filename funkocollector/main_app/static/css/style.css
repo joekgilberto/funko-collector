@@ -1,0 +1,67 @@
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+h1>a{
+    color: #00aaff;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+h2{
+    margin: 20px 10px;
+    font-style: italic;
+}
+
+.how-to{
+    color: #a6a6a6;
+}
+
+.about{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.about h2{
+    align-self: self-start;
+}
+
+.more-work{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.funko-index{
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.funko-img{
+    background-color: #bae8ff;
+}
+
+.funko-link{
+    padding: 20px;
+}
+
+.funko-bttn{
+    width: 50%;
+}
+
+footer{
+    background-color: #00aaff;
+    color: #fff;
+    text-align: center;
+}

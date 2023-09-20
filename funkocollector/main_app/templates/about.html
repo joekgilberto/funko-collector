@@ -1,9 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h2>About Funko Collector</h2>
-<p>Funko Collector is a Django web application built by Joe Gilberto to practice working with PostgreSQL databases by interacting with data regarding a Funko Pop collection.  Funko Pops are a line of collectible toys styled after many recognizable characters and people in popular culture.</p>
-<br/>
-<p>For more of Joe's work, visit <a href="https://joekgilberto.com/" target="_blank">joekgilberto.com</a></p>
+<section class="about container-fluid">
+    <h2>About Funko Collector</h2>
+    <p>Funko Collector is a Django web application built by Joe Gilberto to practice working with PostgreSQL databases
+        by interacting with data regarding a Funko Pop collection. Funko Pops are a line of collectible toys styled
+        after many recognizable characters and people in popular culture.</p>
+    <br />
+    <div class="card" style="width: 18rem;">
+        <div class="card-body more-work">
+        <p>For more of Joe's work, visit:</p>
+        <a class="btn btn-primary" href="https://joekgilberto.com/" target="_blank">joekgilberto.com</a>
+        </div>
+    </div>
+</section>
 
 {% endblock %}
