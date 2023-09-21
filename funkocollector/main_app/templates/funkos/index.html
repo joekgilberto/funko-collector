@@ -8,10 +8,13 @@
 <div class="card" style="width: 18rem;">
     <img class="card-img-top funko-img" src="{{funko.image}}" />
     <div class="card-body">
-        <h3 class="card-title">{{funko.name}}</h3>
+        <h3 class="card-title funko-name">{{funko.name}}</h3>
         <h3 class="card-title">#{{funko.number}}</h3>
-        <p class="card-text">{{funko.description}}</p>
-        <a href="{{funko.link}}" target="_blank" class="btn btn-primary funko-link"><img class="funko-bttn" src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Funko.svg/1280px-Funko.svg.png"></a>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="{% url 'detail' funko.id %}" class="btn btn-primary funko-link">See my Funko</a>
+            <a href="{{funko.link}}" target="_blank" class="btn btn-secondary funko-link"><img class="funko-bttn" src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Funko.svg/1280px-Funko.svg.png"></a>
+        </div>
+
     </div>
 
 </div>
