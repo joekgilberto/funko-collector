@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Funko
 
 # Create your views here.
@@ -21,3 +22,16 @@ def funkos_index(request):
 def funkos_detail(request,funko_id):
     funko = Funko.objects.get(id=funko_id)
     return render(request, 'funkos/detail.html',{'title':funko.name,'funko':funko})
+
+class FunkoCreate(CreateView):
+  model = Funko
+  fields = '__all__'
+
+
+class FunkoUpdate(UpdateView):
+  model = Funko
+  fields = ['description', 'image','link']
+
+class FunkoDelete(DeleteView):
+  model = Funko
+  success_url = '/funkos'

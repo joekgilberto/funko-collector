@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Delete #{{ funko.number }}</h1>
+
+  <h3>Are you sure you want to delete <span class="blue-text">{{ funko.name }}</span>?</h3>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Goodbye" class="btn btn-secondary">
+    <a class="btn btn-primary" href="{% url 'detail' funko.id %}">Cancel</a>
+  </form>
+{% endblock %}

@@ -19,6 +19,7 @@
             <h1><a href="{% url 'home' %}">Funko Collector</a></h1>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link {% if title == 'About' %}active{% endif %}" aria-current="page" href="{% url 'about' %}">About</a></li>
+                <li class="nav-item"><a class="nav-link {% if title == 'Gift a Funko' %}active{% endif %}" aria-current="page" href="{% url 'funkos_create' %}">Gift a Funko</a></li>
                 <li class="nav-item"><a class="nav-link {% if title == 'All Funkos' %}active{% endif %}" aria-current="page" href="{% url 'index' %}">View All My Funkos</a></li>
             </ul>
             </div>

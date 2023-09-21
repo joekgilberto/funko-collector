@@ -3,16 +3,23 @@
 <h2>My {{funko.name}} Funko</h2>
 <section class="funko-detail">
 
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top funko-img" src="{{funko.image}}" />
-    <div class="card-body">
-        <h4 class="card-title">Fromt the {{funko.collection}} Collection</h4>
-        <h3 class="card-title">{{funko.name}}</h3>
-        <h3 class="card-title">#{{funko.number}}</h3>
-        <p class="card-text">{{funko.description}}</p>
-        <a href="{{funko.link}}" target="_blank" class="btn btn-secondary funko-link details"><img class="funko-bttn" src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Funko.svg/1280px-Funko.svg.png"></a>
-    </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top funko-img" src="{{funko.image}}" />
+        <div class="card-body">
+            <h4 class="card-title">from the {{funko.collection}} Collection</h4>
+            <h3 class="card-title">{{funko.name}}</h3>
+            <h3 class="card-title">#{{funko.number}}</h3>
+            <p class="card-text">{{funko.description}}</p>
+            <a href="{{funko.link}}" target="_blank" class="btn btn-secondary funko-link details"><img
+                    class="funko-bttn"
+                    src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Funko.svg/1280px-Funko.svg.png"></a>
 
-</div>
+            <div class="funko-actions">
+                <a class="btn btn-primary" href="{% url 'funkos_update' funko.id %}">Edit</a>
+                <a class="btn btn-primary" href="{% url 'funkos_delete' funko.id %}">Delete</a>
+            </div>
+        </div>
+
+    </div>
 </section>
 {% endblock %}
