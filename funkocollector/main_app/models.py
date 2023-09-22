@@ -17,6 +17,9 @@ class Funko(models.Model):
     def get_absolute_url(self):
         return reverse('detail', kwargs={'funko_id': self.id})
     
+    def interest(self):
+        return self.buyer_set.count() > 0
+    
 class Buyer(models.Model):
     name = models.CharField()
     offer = models.FloatField(default=0.00)

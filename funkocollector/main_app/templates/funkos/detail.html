@@ -44,6 +44,11 @@
                     {% endfor %}
                 </tbody>
             </table>
+            {% if funko.interest %}
+            <div class="card interest theres-interest">{{funko.name}} has some offers!</div>
+            {% else %}
+            <div class="card interest no-interest">No offers yet</div>
+            {% endif %}
         </div>
     </div>
 </section>
