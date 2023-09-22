@@ -51,5 +51,49 @@
             {% endif %}
         </div>
     </div>
+    <div class="admirers card" style="width: 18rem;">
+        <div class="current-admirers">
+            <h3>Current Admirers</h3>
+            {% if funko.admirers.count %}
+            {% for admirer in funko.admirers.all %}
+            <div class="card">
+                <div class="card-content admirer-card">
+                    <span class="card-title admirer-name">
+                        {{ admirer.name }}
+                    </span>
+                    <form action="{% url 'unassoc_admirer' funko.id admirer.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">Delete</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <h5>No Admirers yet!</h5>
+            {% endif %}
+        </div>
+        <div class="add-admirers">
+            <h3>Potential Admirers</h3>
+            {% if admirers.count %}
+            {% for admirer in admirers.all %}
+            <div class="card admirer-card">
+                <div class="card-content">
+                    <span class="card-title admirer-name">
+                        {{ admirer.name }}
+                    </span>
+                </div>
+                <div class="card-action">
+                    <form action="{% url 'assoc_admirer' funko.id admirer.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">Add</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <h5>{{cat.name}} Already Has All Admirers</h5>
+            {% endif %}
+        </div>
+    </div>
 </section>
 {% endblock %}

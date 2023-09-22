@@ -23,11 +23,13 @@ def funkos_index(request):
 
 def funkos_detail(request, funko_id):
   funko = Funko.objects.get(id=funko_id)
-  # instantiate FeedingForm to be rendered in the template
+  id_list = funko.admirers.all().values_list('id')
+  not_admiring = Admirer.objects.exclude(id__in=id_list)
   buyer_form = BuyerForm()
   return render(request, 'funkos/detail.html', {
-    # include the cat and feeding_form in the context
-    'funko': funko, 'buyer_form': buyer_form, 'title':funko.name
+    'funko': funko, 'buyer_form': buyer_form,
+    # Add the toys to be displayed
+    'admirers': not_admiring
   })
 
 class FunkoCreate(CreateView):
@@ -71,3 +73,13 @@ class AdmirerUpdate(UpdateView):
 class AdmirerDelete(DeleteView):
   model = Admirer
   success_url = '/admirers'
+
+def assoc_admirer(request, funko_id, admirer_id):
+  # Note that you can pass a toy's id instead of the whole toy object
+  Funko.objects.get(id=funko_id).admirers.add(admirer_id)
+  return redirect('detail', funko_id=funko_id)
+
+def unassoc_admirer(request, funko_id, admirer_id):
+  # Note that you can pass a toy's id instead of the whole toy object
+  Funko.objects.get(id=funko_id).admirers.remove(admirer_id)
+  return redirect('detail', funko_id=funko_id)

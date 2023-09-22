@@ -132,6 +132,19 @@ h4{
     color: red;
 }
 
+.admirers{
+    padding: 10px;
+}
+
+.admirer-card{
+    display: flex;
+    justify-content: space-between;
+}
+
+.admirer-name{
+    text-align: center;
+}
+
 footer{
     background-color: #00aaff;
     color: #fff;
