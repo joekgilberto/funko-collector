@@ -20,23 +20,31 @@
             </div>
         </div>
     </div>
-    <div class="buyers">
-        <table class="'table">
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col">Buyer</th>
-                    <th scope="col">Offer</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for buyer in funko.buyer_set.all %}
-                <tr>
-                    <td scope="row">{{buyer.name}}</td>
-                    <td>{{buyer.offer}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <div class="buyers card" style="width: 18rem;">
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                <!-- Render the inputs -->
+                {{ buyer_form.as_p }}
+                <input type="submit" class="btn" value="Add Feeding">
+            </form>
+            <table class="'table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Buyer</th>
+                        <th scope="col">Offer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for buyer in funko.buyer_set.all %}
+                    <tr>
+                        <td scope="row">{{buyer.name}}</td>
+                        <td>{{buyer.offer}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </section>
 {% endblock %}

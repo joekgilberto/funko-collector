@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Funko
+from .forms import BuyerForm
 
 # Create your views here.
 # funkos = [
@@ -19,9 +20,14 @@ def funkos_index(request):
     funkos = Funko.objects.all()
     return render(request, 'funkos/index.html',{'title':'All Funkos','funkos':funkos})
 
-def funkos_detail(request,funko_id):
-    funko = Funko.objects.get(id=funko_id)
-    return render(request, 'funkos/detail.html',{'title':funko.name,'funko':funko})
+def funkos_detail(request, funko_id):
+  funko = Funko.objects.get(id=funko_id)
+  # instantiate FeedingForm to be rendered in the template
+  buyer_form = BuyerForm()
+  return render(request, 'funkos/detail.html', {
+    # include the cat and feeding_form in the context
+    'funko': funko, 'buyer_form': buyer_form, 'title':funko.name
+  })
 
 class FunkoCreate(CreateView):
   model = Funko
