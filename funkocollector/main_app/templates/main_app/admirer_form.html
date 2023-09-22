@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if admirer %}
+    <h1><span class="blue-text">Edit:</span> {{admirer.name}}</h1>
+  {% else %}
+  <h1>Become an Admirer</h1>
+  {% endif %}
+  <!-- Leaving the action empty makes the form post to the same url used to display it -->
+  <form action="" method="POST" class="admirer-form">
+    <!-- Django requires the following for security purposes -->
+    {% csrf_token %}
+    <table>
+      <!-- Render the inputs inside of <tr>s & <td>s -->
+      {{ form.as_table }}
+    </table>
+    {% if admirer %}
+    <input class="btn btn-primary" type="submit" value="Edit Admirer" class="btn">
+    {% else %}
+    <input class="btn btn-primary" type="submit" value="Admire!" class="btn">
+    {% endif %}
+  </form>
+{% endblock %}

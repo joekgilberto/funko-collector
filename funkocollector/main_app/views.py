@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Funko
+from .models import Funko, Admirer
 from .forms import BuyerForm
 
 # Create your views here.
@@ -31,7 +32,7 @@ def funkos_detail(request, funko_id):
 
 class FunkoCreate(CreateView):
   model = Funko
-  fields = '__all__'
+  fields = ['name','number','collection','description', 'image','link']
 
 
 class FunkoUpdate(UpdateView):
@@ -53,3 +54,20 @@ def add_buyer(request, funko_id):
     new_buyer.funko_id = funko_id
     new_buyer.save()
   return redirect('detail', funko_id=funko_id)
+
+class AdmirerCreate(CreateView):
+  model = Admirer
+  fields = '__all__'
+
+class AdmirerList(ListView):
+  model = Admirer
+
+class AdmirerDetail(DetailView):
+  model = Admirer
+class AdmirerUpdate(UpdateView):
+  model = Admirer
+  fields = '__all__'
+
+class AdmirerDelete(DeleteView):
+  model = Admirer
+  success_url = '/admirers'

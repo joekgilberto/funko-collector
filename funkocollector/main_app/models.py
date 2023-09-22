@@ -2,6 +2,16 @@ from django.db import models
 from django.urls import reverse
 
 # Create your models here.
+
+class Admirer(models.Model):
+    name = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse('home')
+
 class Funko(models.Model):
     name = models.CharField(max_length=100)
     number = models.IntegerField()
@@ -9,6 +19,7 @@ class Funko(models.Model):
     description = models.TextField(max_length=300)
     image = models.CharField()
     link = models.CharField()
+    admirers = models.ManyToManyField(Admirer)
 
 
     def __str__(self):

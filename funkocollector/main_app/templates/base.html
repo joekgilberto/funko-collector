@@ -23,8 +23,13 @@
                         href="{% url 'about' %}">About</a></li>
                 <li class="nav-item"><a class="nav-link {% if title == 'Gift a Funko' %}active{% endif %}"
                         aria-current="page" href="{% url 'funkos_create' %}">Gift a Funko</a></li>
+                <li class="nav-item"><a class="nav-link {% if title == 'Become an Admirer' %}active{% endif %}"
+                        aria-current="page" href="{% url 'admirers_create' %}">Become an Admirer</a></li>
                 <li class="nav-item"><a class="nav-link {% if title == 'All Funkos' %}active{% endif %}"
                         aria-current="page" href="{% url 'index' %}">View All My Funkos</a></li>
+                        <li class="nav-item"><a class="nav-link {% if title == 'All Admirers' %}active{% endif %}"
+                            aria-current="page" href="{% url 'admirers_index' %}">View All My Admirers</a></li>
+                        
             </ul>
             </div>
         </nav>
