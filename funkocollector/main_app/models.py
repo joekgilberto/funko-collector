@@ -16,3 +16,15 @@ class Funko(models.Model):
     
     def get_absolute_url(self):
         return reverse('detail', kwargs={'funko_id': self.id})
+    
+class Buyer(models.Model):
+    name = models.CharField()
+    offer = models.FloatField()
+
+    funko = models.ForeignKey(Funko, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.name} is offering ${self.offer}'
+    
+    class Meta:
+        ordering = ['offer']

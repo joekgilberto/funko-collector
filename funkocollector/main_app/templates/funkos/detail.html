@@ -19,7 +19,24 @@
                 <a class="btn btn-primary" href="{% url 'funkos_delete' funko.id %}">Delete</a>
             </div>
         </div>
-
+    </div>
+    <div class="buyers">
+        <table class="'table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Buyer</th>
+                    <th scope="col">Offer</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for buyer in funko.buyer_set.all %}
+                <tr>
+                    <td scope="row">{{buyer.name}}</td>
+                    <td>{{buyer.offer}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </section>
 {% endblock %}
