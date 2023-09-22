@@ -107,6 +107,14 @@ h4{
     width: 100%;
 }
 
+.buyer-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
 footer{
     background-color: #00aaff;
     color: #fff;

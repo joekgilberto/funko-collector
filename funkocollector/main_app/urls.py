@@ -9,4 +9,5 @@ urlpatterns = [
     path('funkos/create/',views.FunkoCreate.as_view(),name='funkos_create'),
     path('funkos/<int:pk>/update/', views.FunkoUpdate.as_view(), name='funkos_update'),
     path('funkos/<int:pk>/delete/', views.FunkoDelete.as_view(), name='funkos_delete'),
+    path('funkos/<int:funko_id>/add_buyer/', views.add_buyer, name='add_buyer'),
 ]

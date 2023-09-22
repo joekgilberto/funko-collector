@@ -19,7 +19,7 @@ class Funko(models.Model):
     
 class Buyer(models.Model):
     name = models.CharField()
-    offer = models.FloatField()
+    offer = models.FloatField(default=0.00)
 
     funko = models.ForeignKey(Funko, on_delete=models.CASCADE)
 

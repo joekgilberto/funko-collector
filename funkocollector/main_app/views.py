@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Funko
 from .forms import BuyerForm
@@ -41,3 +41,15 @@ class FunkoUpdate(UpdateView):
 class FunkoDelete(DeleteView):
   model = Funko
   success_url = '/funkos'
+
+def add_buyer(request, funko_id):
+  # create a ModelForm instance using the data in request.POST
+  form = BuyerForm(request.POST)
+  # validate the form
+  if form.is_valid():
+    # don't save the form to the db until it
+    # has the cat_id assigned
+    new_buyer = form.save(commit=False)
+    new_buyer.funko_id = funko_id
+    new_buyer.save()
+  return redirect('detail', funko_id=funko_id)

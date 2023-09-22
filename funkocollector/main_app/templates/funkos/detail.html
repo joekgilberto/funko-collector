@@ -22,11 +22,11 @@
     </div>
     <div class="buyers card" style="width: 18rem;">
         <div class="card-body">
-            <form method="POST">
+            <form class="buyer-form" action="{% url 'add_buyer' funko.id %}" method="POST">
                 {% csrf_token %}
                 <!-- Render the inputs -->
                 {{ buyer_form.as_p }}
-                <input type="submit" class="btn" value="Add Feeding">
+                <input type="submit" class="btn btn-primary" value="Make an offer!">
             </form>
             <table class="'table">
                 <thead class="thead-light">
